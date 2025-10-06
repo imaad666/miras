@@ -400,19 +400,23 @@ html {
 
 /* Variant (pink) for Shehnoor section */
 .shehnoor-section {
-    background: #F5ACBC; /* updated pink */
+    background: #921F4A; /* updated pink */
 }
 
 .shehnoor-section .product-title {
-    color: #492B2B;
+    color: #FCE7EA;
 }
 
 .shehnoor-section .product-subtext {
     font-family: 'Partsold', serif;
-    color: #7A4B4B;
+    color: #FCE7EA;
     font-style: italic;
     font-size: 1.2rem;
     margin-bottom: 1rem;
+}
+
+.shehnoor-section .product-description {
+    color: #FCE7EA;
 }
 
 .image-content {
@@ -515,7 +519,7 @@ html {
 /* Collection Section */
 .collection-section {
     background: url('assets/home_gif.gif') center center / cover no-repeat;
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
