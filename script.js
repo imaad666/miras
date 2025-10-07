@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 span.style.transform = navLinks.classList.contains('active') 
                     ? `rotate(${index === 0 ? 45 : index === 2 ? -45 : 0}deg) translate(${index === 1 ? '0, 0' : index === 0 ? '0, 7px' : '0, -7px'})`
                     : 'none';
-                span.style.opacity = index === 1 && navLinks.classList.contains('active') ? '0' : '1';
+                    
+                    
+                    span.style.opacity = index === 1 && navLinks.classList.contains('active') ? '0' : '1';
+                
             });
         });
     }
