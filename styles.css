@@ -156,13 +156,22 @@ body {
     overflow: hidden;
 }
 
-.hero-background {
+.hero-carousel {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.hero-slide {
+    position: relative;
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .hero-image {
@@ -180,6 +189,40 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
     z-index: 2;
+}
+
+/* Hero Dots Navigation */
+.hero-dots {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #E0D0A0;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dot:hover {
+    background: rgba(224, 208, 160, 0.5);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: #E0D0A0;
+    width: 14px;
+    height: 14px;
 }
 
 .hero-content {
@@ -309,6 +352,21 @@ body {
         padding: 0.8rem 2rem;
         font-size: 1rem;
     }
+    
+    .hero-dots {
+        bottom: 2rem;
+        gap: 0.8rem;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .dot.active {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -338,6 +396,22 @@ body {
         padding: 0.7rem 1.5rem;
         font-size: 0.9rem;
     }
+    
+    .hero-dots {
+        bottom: 1.5rem;
+        gap: 0.7rem;
+    }
+    
+    .dot {
+        width: 9px;
+        height: 9px;
+        border-width: 1.5px;
+    }
+    
+    .dot.active {
+        width: 11px;
+        height: 11px;
+    }
 }
 
 /* Smooth scrolling */
@@ -352,6 +426,49 @@ html {
 
 .hero-content.loaded * {
     opacity: 1;
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for child elements */
+.scroll-reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-reveal-stagger.revealed > *:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.scroll-reveal-stagger.revealed > *:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.scroll-reveal-stagger.revealed > *:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.scroll-reveal-stagger.revealed > *:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
 }
 
 /* Product Showcase Section */
@@ -398,25 +515,23 @@ html {
     font-weight: 400;
 }
 
-/* Variant (pink) for Shehnoor section */
-.shehnoor-section {
-    background: #921F4A; /* updated pink */
+/* Shehnoor section - images on left, text on right */
+.shehnoor-section .showcase-content {
+    grid-template-columns: 1.2fr 0.8fr; /* images bigger on left, text smaller on right */
 }
 
-.shehnoor-section .product-title {
-    color: #FCE7EA;
+.shehnoor-section .text-content {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 2rem;
 }
 
-.shehnoor-section .product-subtext {
+.product-subtext {
     font-family: 'Partsold', serif;
-    color: #FCE7EA;
+    color: #4A4A4A;
     font-style: italic;
     font-size: 1.2rem;
     margin-bottom: 1rem;
-}
-
-.shehnoor-section .product-description {
-    color: #FCE7EA;
 }
 
 .image-content {
@@ -468,6 +583,23 @@ html {
     .product-showcase {
         padding: 4rem 0;
     }
+    
+    /* Reset shehnoor section on mobile */
+    .shehnoor-section .showcase-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .shehnoor-section .text-content {
+        text-align: center;
+        padding-left: 0;
+        order: 2;
+    }
+    
+    .shehnoor-section .image-content {
+        order: 1;
+    }
 }
 
 @media (max-width: 768px) {
@@ -516,247 +648,236 @@ html {
     }
 }
 
-/* Collection Section */
-.collection-section {
-    background: url('assets/home_gif.gif') center center / cover no-repeat;
-    min-height: 90vh;
+/* About Us Section */
+.about-section {
+    background: #F5F3F0;
+    padding: 5rem 0;
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
 }
 
-.collection-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-}
-
-.collection-container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
+.about-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh;
 }
 
-.collection-title {
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    font-family: 'Roashe', serif;
-    font-size: clamp(4rem, 8vw, 8rem);
-    font-weight: normal;
-    color: #E0D0A0;
-    letter-spacing: 3px;
-    z-index: 3;
-    margin: 0;
+.about-header {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-.collection-subtitle {
-    position: absolute;
-    bottom: 20%;
-    right: 15%;
+.about-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.about-subtitle {
     font-family: 'Partsold', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     font-weight: normal;
-    color: #E0D0A0;
+    color: #4A4A4A;
     font-style: italic;
-    z-index: 3;
     margin: 0;
 }
 
-.video-carousel {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.carousel-frame {
+.about-video-full {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    width: 400px; /* Fixed width for video container */
 }
 
-.video-container {
-    position: relative;
+.artisan-video-full {
     width: 100%;
-    height: 600px; /* Fixed height for 9:16 aspect ratio at 400px width */
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-.carousel-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    height: 60vh;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    border-radius: 16px;
+    object-position: center;
+    display: block;
 }
 
-.carousel-video.active {
-    opacity: 1;
-}
-
-.carousel-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 4;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
-}
-
-.carousel-btn:hover {
+.about-text-box {
     background: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    padding: 3rem;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
 }
 
-.carousel-btn svg {
-    color: #8B4513;
-    width: 20px;
-    height: 20px;
+.featured-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #dc2626;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
 }
 
-/* Responsive Design for Collection Section */
+.about-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    font-weight: 600;
+    color: #2C2C2C;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.about-description {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    line-height: 1.7;
+    color: #4A4A4A;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.shop-now-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2C2C2C;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.shop-now-link:hover {
+    color: #4A4A4A;
+}
+
+/* Responsive Design for About Section */
 @media (max-width: 968px) {
-    .collection-title {
-        top: 8%;
-        left: 5%;
-        font-size: clamp(5rem, 9vw, 7rem); /* bigger min, smoother scaling */
+    .about-section {
+        padding: 3rem 0;
+        min-height: auto;
+        display: block;
     }
     
-    .collection-subtitle {
-        bottom: 12%;
-        right: 8%;
-        font-size: clamp(3.5rem, 6.5vw, 4.5rem);
+    .about-header {
+        margin-bottom: 2rem;
     }
     
-    .video-carousel {
-        max-width: 550px;
-        gap: 2rem;
+    .about-container {
+        padding: 0 1rem;
     }
     
-    .carousel-frame {
-        width: 380px;
+    .about-text-box {
+        padding: 2rem;
+        margin: 2rem 1rem 0 1rem;
+        max-width: none;
     }
     
-    .video-container {
-        height: 570px; /* 380px * 1.5 */
+    .artisan-video-full {
+        height: 50vh;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .collection-container {
+    .about-section {
+        padding: 2rem 0;
+        min-height: auto;
+        display: block;
+    }
+    
+    .about-container {
         padding: 0 1rem;
-        flex-direction: column;
-        text-align: center;
     }
     
-    .collection-title {
-        top: auto;
-        left: auto;
-        position: relative;
-        font-size: clamp(4rem, 8vw, 5.5rem); /* bigger than before */
-        margin-bottom: 0.5rem;
-    }
-    
-    .collection-subtitle {
-        bottom: auto;
-        right: auto;
-        position: relative;
-        font-size: clamp(3rem, 6.5vw, 4.2rem);
+    .about-header {
         margin-bottom: 1.5rem;
     }
     
-    .video-carousel {
-        max-width: 420px;
-        gap: 1.5rem;
+    .about-title {
+        font-size: clamp(2rem, 5vw, 2.5rem);
     }
     
-    .carousel-frame {
-        width: 420px;
+    .about-subtitle {
+        font-size: clamp(1rem, 3vw, 1.2rem);
     }
     
-    .video-container {
-        height: 580px; /* 320 * 1.5 */
+    .about-text-box {
+        padding: 1.5rem;
+        margin: 1.5rem 0.5rem 0 0.5rem;
     }
     
-    .carousel-btn {
-        width: 44px;
-        height: 44px;
+    .about-heading {
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
     }
     
-    .carousel-btn svg {
-        width: 18px;
-        height: 18px;
+    .artisan-video-full {
+        height: 40vh;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .collection-title {
-        font-size: clamp(3.2rem, 9vw, 4.2rem); /* boosted min size */
-        letter-spacing: 1px;
-        margin-bottom: 0.3rem;
+    .about-section {
+        padding: 1.5rem 0;
+        min-height: auto;
+        display: block;
     }
     
-    .collection-subtitle {
-        font-size: clamp(2.6rem, 7vw, 3.2rem);
+    .about-container {
+        padding: 0 1rem;
+    }
+    
+    .about-header {
         margin-bottom: 1rem;
     }
     
-    .video-carousel {
-        max-width: 340px;
-        gap: 1rem;
+    .about-title {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
     }
     
-    .carousel-frame {
-        width: 360px;
+    .about-subtitle {
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
     }
     
-    .video-container {
-        height: 490px; /* 260 * 1.5 */
+    .about-text-box {
+        padding: 1rem;
+        margin: 1rem 0.25rem 0 0.25rem;
     }
     
-    .carousel-btn {
-        width: 38px;
-        height: 38px;
+    .about-heading {
+        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
     }
     
-    .carousel-btn svg {
-        width: 16px;
-        height: 16px;
+    .about-description {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .artisan-video-full {
+        height: 35vh;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .featured-label {
+        font-size: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .shop-now-link {
+        font-size: 0.9rem;
     }
 }
 

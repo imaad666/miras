@@ -47,6 +47,53 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
     
+    // Hero Carousel Functionality
+    const heroCarousel = document.querySelector('.hero-carousel');
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dots .dot');
+    let currentSlide = 0;
+    let heroCarouselInterval;
+    
+    function showHeroSlide(index) {
+        // Update carousel position for sliding effect
+        const offset = -index * 100;
+        heroCarousel.style.transform = `translateX(${offset}%)`;
+        
+        // Update active dot
+        heroDots.forEach(dot => dot.classList.remove('active'));
+        heroDots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+    
+    function nextHeroSlide() {
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        showHeroSlide(currentSlide);
+    }
+    
+    // Auto-rotate carousel every 5 seconds
+    function startHeroCarousel() {
+        heroCarouselInterval = setInterval(nextHeroSlide, 5000);
+    }
+    
+    function stopHeroCarousel() {
+        clearInterval(heroCarouselInterval);
+    }
+    
+    // Dot click functionality
+    heroDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopHeroCarousel();
+            showHeroSlide(index);
+            startHeroCarousel(); // Restart auto-rotation after manual click
+        });
+    });
+    
+    // Start the carousel if slides exist
+    if (heroSlides.length > 1) {
+        startHeroCarousel();
+    }
+    
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     let lastScrollY = window.scrollY;
@@ -83,112 +130,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add scroll reveal animation for future sections
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    // Scroll Reveal Animation
+    const scrollRevealOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
+    const scrollRevealObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('revealed');
+                // Optional: stop observing after revealing (one-time animation)
+                scrollRevealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, scrollRevealOptions);
     
-    // Observe elements that should animate on scroll (for future sections)
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    // Observe all scroll-reveal elements
+    const scrollRevealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-stagger');
+    scrollRevealElements.forEach(el => {
+        scrollRevealObserver.observe(el);
     });
-
-// Video carousel functionality
-const carouselVideos = document.querySelectorAll('.carousel-video');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-let currentVideoIndex = 0;
-
-function showVideo(index) {
-    console.log(`Switching to video ${index + 1}`);
-
-    carouselVideos.forEach((video, i) => {
-        video.classList.remove('active');
-        video.pause();
-        // ❌ don't reset every video
-        if (i !== index) {
-            video.currentTime = 0; // reset only non-active videos
-        }
-    });
-
-    const targetVideo = carouselVideos[index];
-
-    // ensure preload + load
-    if (targetVideo.preload === 'none') {
-        targetVideo.preload = 'metadata';
-        targetVideo.load();
-    }
-
-    targetVideo.classList.add('active');
-    targetVideo.play(); // ✅ actually start playing active video
-    console.log(`Video ${index + 1} is now active`);
-}
-
-function nextVideo() {
-    currentVideoIndex = (currentVideoIndex + 1) % carouselVideos.length;
-    showVideo(currentVideoIndex);
-}
-
-function prevVideo() {
-    currentVideoIndex = (currentVideoIndex - 1 + carouselVideos.length) % carouselVideos.length;
-    showVideo(currentVideoIndex);
-}
-
-if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', prevVideo);
-    nextBtn.addEventListener('click', nextVideo);
-}
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') prevVideo();
-    else if (e.key === 'ArrowRight') nextVideo();
-});
-
-// Touch/swipe support
-let touchStartX = 0;
-let touchEndX = 0;
-const carouselFrame = document.querySelector('.carousel-frame');
-
-if (carouselFrame) {
-    carouselFrame.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    carouselFrame.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) nextVideo(); // left swipe
-            else prevVideo();          // right swipe
-        }
-    }
-    // Make the first video play by default
-window.addEventListener('DOMContentLoaded', () => {
-    if (carouselVideos.length > 0) {
-        carouselVideos[0].classList.add('active');
-        carouselVideos[0].play();
-    }
-});
-
-}
 });

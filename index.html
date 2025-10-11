@@ -51,14 +51,24 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
-            <img src="assets/hero_banner.jpg" alt="MIRAS Hero Banner" class="hero-image">
-            <div class="hero-overlay"></div>
+        <div class="hero-carousel">
+            <div class="hero-slide active">
+                <img src="assets/hero_banner.jpg" alt="MIRAS Hero Banner 1" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="assets/hero_banner_2.JPG" alt="MIRAS Hero Banner 2" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
         </div>
         <div class="hero-content">
             <h1 class="hero-title">MIRAS</h1>
             <p class="hero-subtext">Where tradition whispers luxury</p>
             <button class="hero-btn">Shop Now</button>
+        </div>
+        <div class="hero-dots">
+            <button class="dot active" aria-label="Go to slide 1" data-slide="0"></button>
+            <button class="dot" aria-label="Go to slide 2" data-slide="1"></button>
         </div>
     </section>
 
@@ -66,7 +76,7 @@
     <section class="product-showcase">
         <div class="showcase-container">
             <div class="showcase-content">
-                <div class="text-content">
+                <div class="text-content scroll-reveal">
                     <h2 class="product-title">
                         MEHZAR — A GLIMPSE OF ETERNITY
                     </h2>
@@ -74,7 +84,7 @@
                         A soft whisper of the 90s – this sunshine yellow set brings back the charm of short kurtas paired with flowing bell-bottom salwars. Designed with cut-sleeves, it carries the ease of vintage silhouettes while embracing modern finesse. The look is completed with a half-pure dupatta – featherlight, flowing like poetry in motion.
                     </p>
                 </div>
-                <div class="image-content">
+                <div class="image-content scroll-reveal-stagger">
                     <div class="image-stack">
                         <div class="image-item top-image">
                             <img src="assets/home_one.jpg" alt="MEHZAR Collection - Close-up" class="product-image">
@@ -92,17 +102,7 @@
         <section class="product-showcase shehnoor-section">
             <div class="showcase-container">
                 <div class="showcase-content">
-                    <div class="text-content">
-                        <h2 class="product-title">SHEHNOOR BY MIRAS</h2>
-                        <p class="product-subtext">Grace stitched into every fold.</p>
-                        <p class="product-description">
-                            Our muse, carries this timeless piece with effortless charm. Designed to fall just below the knees, this ensemble speaks of quiet sophistication.
-                        </p>
-                        <p class="product-description">
-                            The pure organza dupatta is adorned with delicate handwork, adding fluid elegance to the silhouette. Paired with intricately detailed sleeves, touched with zari and embellishments, this suit is crafted for those who believe in understated grandeur.
-                        </p>
-                    </div>
-                    <div class="image-content">
+                    <div class="image-content scroll-reveal-stagger">
                         <div class="image-stack">
                             <div class="image-item top-image">
                                 <img src="assets/home_four.png" alt="Shehnoor sleeve details" class="product-image">
@@ -112,45 +112,43 @@
                             </div>
                         </div>
                     </div>
+                    <div class="text-content scroll-reveal">
+                        <h2 class="product-title">SHEHNOOR BY MIRAS</h2>
+                        <p class="product-subtext">Grace stitched into every fold.</p>
+                        <p class="product-description">
+                            Our muse, carries this timeless piece with effortless charm. Designed to fall just below the knees, this ensemble speaks of quiet sophistication.
+                        </p>
+                        <p class="product-description">
+                            The pure organza dupatta is adorned with delicate handwork, adding fluid elegance to the silhouette. Paired with intricately detailed sleeves, touched with zari and embellishments, this suit is crafted for those who believe in understated grandeur.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-    <!-- Collection Section -->
-    <section class="collection-section">
-        <div class="collection-container">
-            <h2 class="collection-title">MIRAS</h2>
-            <h3 class="collection-subtitle">Collection</h3>
-            
-            <div class="video-carousel">
-                <button class="carousel-btn prev-btn" aria-label="Previous video">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                
-                <div class="carousel-frame">
-                    <div class="video-container">
-                        <video class="carousel-video active" controls preload="metadata" muted>
-                            <source src="assets/video1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <video class="carousel-video" controls preload="none" muted>
-                            <source src="assets/video2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <video class="carousel-video" controls preload="none" muted>
-                            <source src="assets/video3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-                
-                <button class="carousel-btn next-btn" aria-label="Next video">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-header scroll-reveal">
+                <h2 class="about-title">Elegance Begins at the Fingertips</h2>
+                <p class="about-subtitle">Because true luxury is felt, not just seen</p>
+            </div>
+        </div>
+        
+        <div class="about-video-full scroll-reveal">
+            <video class="artisan-video-full" autoplay muted loop playsinline>
+                <source src="assets/artisans.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="about-container">
+            <div class="about-text-box scroll-reveal-stagger">
+                <div class="featured-label">FEATURED</div>
+                <h3 class="about-heading">Where Heritage Breathes Through Every Thread</h3>
+                <p class="about-description">
+                    At Miras, every thread is touched by tradition and brought to life by hand. Watch Amaan breathe soul into fabric where craft meets culture, and heritage becomes wearable art.                </p>
+                <a href="#" class="shop-now-link">SHOP NOW</a>
             </div>
         </div>
     </section>
@@ -158,7 +156,7 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-content">
+            <div class="footer-content scroll-reveal-stagger">
                 <div class="footer-brand">
                     <h3 class="footer-logo">MIRAS</h3>
                     <p class="footer-tagline">Where tradition whispers luxury</p>
