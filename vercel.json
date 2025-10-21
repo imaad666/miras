@@ -1,0 +1,7 @@
+{
+    "buildCommand": "cd react && npm install && npm run build",
+    "outputDirectory": "react/dist",
+    "installCommand": "cd react && npm install",
+    "framework": null,
+    "devCommand": "cd react && npm run dev"
+}
