@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import QuickViewModal from '../shared/QuickViewModal'
 import { Link } from 'react-router-dom'
 
@@ -54,6 +54,21 @@ function CatalogPage() {
       return next
     })
   }
+
+  // Enable scroll reveal animations (needed for footer staggered content)
+  useEffect(() => {
+    const options = { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, options)
+    document.querySelectorAll('.scroll-reveal, .scroll-reveal-stagger').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <main className="catalog-main">

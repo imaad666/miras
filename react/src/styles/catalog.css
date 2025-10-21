@@ -2,7 +2,7 @@
 
 /* Main Content Area */
 .catalog-main {
-    padding-top: 100px; /* Account for fixed navbar */
+    padding-top: 40px;
     background: #fff;
     min-height: 100vh;
 }
