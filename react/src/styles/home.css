@@ -1097,6 +1097,19 @@ html {
     color: #E0D0A0;
 }
 
+/* Footer socials layout */
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .footer-socials {
+        justify-content: center; /* center icons on mobile */
+    }
+}
+
 /* Responsive Footer */
 @media (max-width: 968px) {
     .footer-content {
