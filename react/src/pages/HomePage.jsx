@@ -26,7 +26,8 @@ function HomePage() {
         <div className="showcase-container">
           <div className="showcase-content">
             <div className="text-content scroll-reveal">
-              <h2 className="product-title">MEHZAR — A GLIMPSE OF ETERNITY</h2>
+              <h2 className="product-title">MEHZAR</h2>
+              <p className="product-subtext">A glimpse of eternity</p>
               <p className="product-description">
                 A soft whisper of the 90s – this sunshine yellow set brings back the charm of short kurtas paired with flowing bell-bottom salwars. Designed with cut-sleeves, it carries the ease of vintage silhouettes while embracing modern finesse. The look is completed with a half-pure dupatta – featherlight, flowing like poetry in motion.
               </p>
@@ -59,7 +60,7 @@ function HomePage() {
               </div>
             </div>
             <div className="text-content scroll-reveal">
-              <h2 className="product-title">SHEHNOOR BY MIRAS</h2>
+              <h2 className="product-title">SHEHNOOR</h2>
               <p className="product-subtext">Grace stitched into every fold.</p>
               <p className="product-description">
                 Our muse, carries this timeless piece with effortless charm. Designed to fall just below the knees, this ensemble speaks of quiet sophistication.
