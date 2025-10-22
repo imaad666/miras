@@ -79,10 +79,11 @@ body {
 
 /* Header Navbar */
 .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
     background: #2f1c13;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 0.6rem 0; /* reduced height */
     transition: all 0.3s ease;
 }
 
@@ -196,7 +197,7 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 92vh; /* slightly cropped so page scrolls */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -239,37 +240,32 @@ body {
 }
 
 /* Hero Dots Navigation */
-.hero-dots {
+/* Hero progress bar */
+.hero-progress-multi {
     position: absolute;
-    bottom: 3rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    width: auto;
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    gap: 8px;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid #E0D0A0;
-    background: transparent;
+.hero-progress-track {
+    width: 1cm; /* ~37.8px typical, keeps under 1cm */
+    height: 3px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
 }
 
-.dot:hover {
-    background: rgba(224, 208, 160, 0.5);
-    transform: scale(1.2);
-}
-
-.dot.active {
-    background: #E0D0A0;
-    width: 14px;
-    height: 14px;
+.hero-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #ffffff;
+    transition: width 0.1s linear;
 }
 
 .hero-content {
@@ -422,19 +418,10 @@ body {
         font-size: 1rem;
     }
     
-    .hero-dots {
-        bottom: 2rem;
-        gap: 0.8rem;
-    }
-    
-    .dot {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .dot.active {
-        width: 12px;
-        height: 12px;
+    .hero-progress-multi {
+        bottom: 1.5rem;
+        width: auto;
+        gap: 6px;
     }
 }
 
