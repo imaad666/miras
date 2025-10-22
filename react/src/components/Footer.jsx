@@ -2,7 +2,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-content scroll-reveal-stagger">
+        <div className="footer-content">
           <div className="footer-brand">
             <h3 className="footer-logo">MIRAS</h3>
             <p className="footer-tagline">Where tradition whispers luxury</p>
