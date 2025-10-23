@@ -1,5 +1,5 @@
 import Hero from '../components/Hero'
-import { useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 function useScrollReveal() {
   useEffect(() => {
@@ -45,7 +45,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
       <section className="product-showcase shehnoor-section">
         <div className="showcase-container">
           <div className="showcase-content">
@@ -70,6 +69,72 @@ function HomePage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="product-showcase new-arrivals-section">
+        <div className="showcase-container">
+          {(() => {
+            const pool = [
+              {
+                img: '/assets/new_arrival_1.JPG',
+                label: 'NEW ARRIVALS',
+                title: 'Mehzar',
+                desc: 'A revival of the golden era, it’s an ode to timeless elegance with a modern twist.'
+              },
+              {
+                img: '/assets/new_arrival_2.JPG',
+                label: 'NEW ARRIVALS',
+                title: 'Grace in Whispers',
+                desc: 'The gentle flow of crepe, kissed with intricate hand-embroidered pearls, speaks of devotion and artistry.'
+              },
+              {
+                img: '/assets/new_arrival_3.JPG',
+                label: 'NEW ARRIVALS',
+                title: 'Shahnoor',
+                desc: 'Timeless red, reimagined. With delicate cut-dana work and the fluid charm of pure silk.'
+              },
+            ]
+            const shuffled = useMemo(() => {
+              const arr = [...pool]
+              for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1))
+                ;[arr[i], arr[j]] = [arr[j], arr[i]]
+              }
+              return arr
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            }, [])
+            const [idx, setIdx] = useState(0)
+            const current = shuffled[idx]
+
+            const prev = () => setIdx((i) => (i - 1 + shuffled.length) % shuffled.length)
+            const next = () => setIdx((i) => (i + 1) % shuffled.length)
+
+            return (
+              <div className="showcase-content new-arrivals-content">
+                <div className="new-arrivals-text scroll-reveal">
+                  <div className="new-arrivals-pagination">
+                    <span className="current">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="divider" aria-hidden="true"></span>
+                    <span className="total">{String(shuffled.length).padStart(2, '0')}</span>
+                  </div>
+                  <span className="new-arrivals-label">{current.label}</span>
+                  <h2 className="new-arrivals-title">{current.title}</h2>
+                  <p className="new-arrivals-description">{current.desc}</p>
+                  <a className="new-arrivals-link" href="#catalog">EXPLORE</a>
+                </div>
+                <div className="new-arrivals-visual scroll-reveal-stagger">
+                  <div className="new-arrivals-image">
+                    <img src={current.img} alt={current.title} className="new-arrivals-photo" />
+                  </div>
+                  <div className="new-arrivals-arrows">
+                    <button className="new-arrivals-arrow up" aria-label="Previous" onClick={prev}></button>
+                    <button className="new-arrivals-arrow down" aria-label="Next" onClick={next}></button>
+                  </div>
+                </div>
+              </div>
+            )
+          })()}
         </div>
       </section>
 
@@ -102,5 +167,4 @@ function HomePage() {
 }
 
 export default HomePage
-
 
