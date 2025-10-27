@@ -51,7 +51,7 @@ function Hero() {
       <div className={`hero-content ${loaded ? 'loaded' : ''}`}>
         <h1 className="hero-title">MIRAS</h1>
         <p className="hero-subtext">Where tradition whispers luxury</p>
-        <a href="/catalog" className="hero-btn">Shop Now</a>
+        <a href="/catalog" className="hero-btn" aria-label="Shop catalog">Shop Now</a>
       </div>
       <div className="hero-progress-multi">
         {slides.map((_, i) => (

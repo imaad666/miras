@@ -87,24 +87,8 @@ function ArtisanStory() {
           <h2 className="workers-heading">Meet the Artisans</h2>
           <div className="workers-grid">
             <div className="worker-card">
-              <img className="worker-avatar" src="https://i.pravatar.cc/300?img=11" alt="Worker Ayaan" />
-              <div className="worker-name">Ayaan</div>
-            </div>
-            <div className="worker-card">
-              <img className="worker-avatar" src="https://i.pravatar.cc/300?img=12" alt="Worker Zara" />
-              <div className="worker-name">Zara</div>
-            </div>
-            <div className="worker-card">
-              <img className="worker-avatar" src="https://i.pravatar.cc/300?img=13" alt="Worker Imran" />
-              <div className="worker-name">Imran</div>
-            </div>
-            <div className="worker-card">
-              <img className="worker-avatar" src="https://i.pravatar.cc/300?img=14" alt="Worker Meera" />
-              <div className="worker-name">Meera</div>
-            </div>
-            <div className="worker-card">
-              <img className="worker-avatar" src="https://i.pravatar.cc/300?img=15" alt="Worker Yusuf" />
-              <div className="worker-name">Yusuf</div>
+              <img className="worker-avatar" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Artisan silhouette" />
+              <div className="worker-name">Artisan</div>
             </div>
           </div>
         </div>

@@ -852,15 +852,56 @@ html {
     .new-arrivals-visual {
         justify-content: center;
         padding-right: 0;
-        gap: 0.5rem;
-    }
-
-    .new-arrivals-arrow {
-        height: 60px;
+        gap: 0.75rem;
+        flex-direction: column; /* stack image and arrows */
+        align-items: center;
     }
 
     .new-arrivals-arrows {
-        gap: 12px;
+        display: flex;
+        flex-direction: row; /* horizontal arrows on mobile */
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    /* Reset desktop arrow style */
+    .new-arrivals-arrow { all: unset; }
+
+    /* Mobile circular chevron buttons */
+    .new-arrivals-arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid #CD7F32;
+        background: #ffffff;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .new-arrivals-arrow::before,
+    .new-arrivals-arrow::after { content: none; }
+
+    .new-arrivals-arrow::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid #CD7F32;
+        border-left: 2px solid #CD7F32;
+        transform: translate(-50%, -50%);
+    }
+
+    .new-arrivals-arrow.up::before { /* left chevron */
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .new-arrivals-arrow.down::before { /* right chevron */
+        transform: translate(-50%, -50%) rotate(135deg);
     }
 }
 

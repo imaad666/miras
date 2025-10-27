@@ -122,7 +122,7 @@ function HomePage() {
                   <span className="new-arrivals-label">{current.label}</span>
                   <h2 className="new-arrivals-title">{current.title}</h2>
                   <p className="new-arrivals-description">{current.desc}</p>
-                  <a className="new-arrivals-link" href="#catalog">EXPLORE</a>
+                  <Link className="new-arrivals-link" to="/catalog">EXPLORE</Link>
                 </div>
                 <div className="new-arrivals-visual scroll-reveal-stagger">
                   <div className="new-arrivals-image">
@@ -153,10 +153,10 @@ function HomePage() {
           </video>
         </div>
         <div className="about-container">
-          <div className="about-text-box scroll-reveal-stagger">
-            <div className="featured-label">FEATURED</div>
-            <h3 className="about-heading">Where Heritage Breathes Through Every Thread</h3>
-            <p className="about-description">
+          <div className="about-text-box scroll-reveal scroll-reveal-stagger">
+            <div className="featured-label scroll-reveal">FEATURED</div>
+            <h3 className="about-heading scroll-reveal">Where Heritage Breathes Through Every Thread</h3>
+            <p className="about-description scroll-reveal">
               At Miras, every thread is touched by tradition and brought to life by hand. Watch Amaan breathe soul into fabric where craft meets culture, and heritage becomes wearable art.
             </p>
             <Link to="/our-story" className="shop-now-link">READ MORE</Link>
