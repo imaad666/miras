@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import { Link } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 
 function useScrollReveal() {
@@ -158,7 +159,7 @@ function HomePage() {
             <p className="about-description">
               At Miras, every thread is touched by tradition and brought to life by hand. Watch Amaan breathe soul into fabric where craft meets culture, and heritage becomes wearable art.
             </p>
-            <a href="#" className="shop-now-link">READ MORE</a>
+            <Link to="/our-story" className="shop-now-link">READ MORE</Link>
           </div>
         </div>
       </section>
@@ -167,4 +168,3 @@ function HomePage() {
 }
 
 export default HomePage
-

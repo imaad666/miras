@@ -1,0 +1,395 @@
+/* Artisan Story Page */
+.artisan-story-page {
+    background: #f5f3f0;
+    color: #2c2c2c;
+}
+
+.story-hero-section {
+    position: relative;
+    height: calc(100vh - 64px); /* align with navbar height */
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.story-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex: 1;
+    height: 100%; /* stretch panels to full section height */
+}
+
+.story-panel {
+    position: relative;
+    padding: clamp(1.8rem, 4vw, 3rem) clamp(1.6rem, 4vw, 3rem); /* reduce padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.story-panel-crimson {
+    background: #744632;
+    color: #fdf7f2;
+}
+
+.story-panel-ivory {
+    background: #f3ede7;
+    color: #7a4a37;
+}
+
+.story-verse-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.story-verse {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: clamp(0.95rem, 1.7vw, 1.2rem);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    max-width: 26ch;
+}
+
+.story-hero-headline {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: clamp(1rem, 6vw, 3rem);
+    pointer-events: none;
+    padding-bottom: 0;
+    z-index: 2;
+}
+
+.story-hero-headline span {
+    font-family: 'Roashe', serif;
+    font-size: clamp(5rem, 14vw, 14.5rem);
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    line-height: 0.92;
+    display: inline-block;
+    transform: translateY(3%);
+}
+
+.story-hero-headline .headline-left {
+    color: #fdf7f2;
+    text-shadow: 12px 18px 32px rgba(0, 0, 0, 0.35);
+    width: 50vw; /* confine to left panel */
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.story-hero-headline .headline-amp {
+    color: #e4d5c9;
+    transform: translateY(8%);
+}
+
+.story-hero-headline .headline-right {
+    color: #7a4a37;
+    text-shadow: 12px 18px 32px rgba(0, 0, 0, 0.2);
+    width: 50vw; /* confine to right panel */
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.story-intro {
+    padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.story-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 3rem);
+}
+
+.story-title {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.story-lead {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    line-height: 1.9;
+    color: #4b5462;
+    max-width: 860px;
+}
+
+.story-process {
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.process-card {
+    background: #fff;
+    border-radius: 0;
+    padding: clamp(1.8rem, 4vw, 2.8rem);
+    box-shadow: 0 28px 48px rgba(44, 42, 38, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.process-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(116, 70, 50, 0.2), transparent 45%);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    opacity: 0.0;
+    transition: opacity 240ms ease;
+}
+
+/* Hover/focus effects for process cards */
+@media (hover: hover) {
+    .process-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 34px 64px rgba(44, 42, 38, 0.14);
+    }
+
+    .process-card:hover::after {
+        opacity: 1;
+    }
+
+    .process-card:hover .process-title {
+        color: #744632;
+    }
+
+    .process-card:hover .process-counter {
+        color: #744632;
+    }
+}
+
+.process-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 34px 64px rgba(44, 42, 38, 0.14);
+}
+
+.process-card:focus-within::after {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process-card,
+    .process-card::after {
+        transition: none;
+    }
+}
+
+.process-counter {
+    font-family: 'Partsold', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    color: rgba(218, 44, 27, 0.7);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.process-title {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #3a3f47;
+}
+
+.process-copy {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #505861;
+}
+
+.story-gallery {
+    padding: clamp(3rem, 7vw, 6rem) 0 clamp(4rem, 9vw, 7rem);
+    background: linear-gradient(180deg, rgba(218, 44, 27, 0.05), transparent);
+}
+
+/* Workers Grid */
+.workers-heading {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: #3a3f47;
+    text-align: center;
+}
+
+.workers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(1.8rem, 4vw, 3rem);
+    justify-items: center;
+}
+
+.worker-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.worker-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 16px 28px rgba(42, 39, 34, 0.14);
+    filter: grayscale(100%);
+}
+
+.worker-name {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #383d45;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.8rem, 4vw, 3rem);
+}
+
+.gallery-card {
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(42, 39, 34, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.gallery-caption {
+    padding: 1.8rem;
+}
+
+.gallery-caption h3 {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    color: #383d45;
+}
+
+.gallery-caption p {
+    font-family: 'Tilda Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #525a63;
+}
+
+@media (max-width: 1024px) {
+    .story-hero-headline {
+        align-items: flex-end;
+        padding-bottom: 0;
+    }
+
+    .story-hero-headline .headline-amp {
+        transform: translateY(8%);
+    }
+}
+
+@media (max-width: 880px) {
+    .story-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-verse-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .story-panel-ivory {
+        order: 2;
+    }
+
+    .story-hero-headline {
+        display: block;
+        height: 100%;
+        padding: 0;
+    }
+
+    .story-hero-headline span {
+        position: absolute;
+        left: auto;
+        right: clamp(1.2rem, 6vw, 2.4rem);
+        transform: none;
+        font-size: clamp(3.6rem, 14.5vw, 6.2rem);
+        line-height: 0.9;
+        text-align: right;
+        letter-spacing: 0.1em;
+    }
+
+    .story-hero-headline .headline-left {
+        top: auto;
+        bottom: 50%;
+        transform: translateY(0);
+        color: #fef9f4;
+    }
+
+    .story-hero-headline .headline-right {
+        top: 48.5%;
+        transform: translateY(0);
+        color: #744632;
+    }
+
+    .story-hero-headline .headline-left,
+.story-hero-headline .headline-right {
+        width: auto;
+    }
+
+    .story-hero-headline .headline-amp {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .story-panel {
+        padding: clamp(2.5rem, 8vw, 3rem) clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    .story-verse {
+        font-size: 1rem;
+    }
+
+    .process-card {
+        border-radius: 0;
+    }
+
+    .gallery-card img {
+        height: 220px;
+    }
+
+    .story-title {
+        letter-spacing: 0.02em;
+    }
+}
