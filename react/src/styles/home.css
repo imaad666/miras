@@ -363,7 +363,9 @@ body {
     }
     
     .navbar-nav {
-        display: none;
+        display: block; /* allow menu container to be visible on mobile */
+        position: relative; /* anchor absolute dropdown */
+        width: 100%;
     }
     
     .nav-links {
@@ -376,6 +378,7 @@ body {
         flex-direction: column;
         padding: 2rem;
         gap: 1.5rem;
+        z-index: 1001; /* ensure on top */
     }
     
     .nav-links.active {
