@@ -95,6 +95,7 @@ body {
     grid-template-columns: auto 1fr auto auto;
     align-items: center;
     gap: 2rem;
+    position: relative; /* anchor for absolute mobile dropdown */
 }
 
 .navbar-brand h1 {
@@ -358,27 +359,32 @@ body {
 @media (max-width: 768px) {
     .navbar-container {
         padding: 0 1rem;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto 1fr auto auto; /* keep brand, filler, icons, menu on one row */
         gap: 1rem;
     }
     
+.navbar-nav {
+    display: block;
+    position: static; /* allow UL to position against navbar-container */
+}
     .navbar-nav {
-        display: block; /* allow menu container to be visible on mobile */
-        position: relative; /* anchor absolute dropdown */
-        width: 100%;
+        display: block;
+        position: static;
     }
     
     .nav-links {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(92, 63, 43, 0.98);
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw; /* span full mobile screen width */
+        background: #2f1c13; /* match top navbar color */
         flex-direction: column;
         padding: 2rem;
         gap: 1.5rem;
-        z-index: 1001; /* ensure on top */
+        z-index: 1001;
     }
     
     .nav-links.active {
