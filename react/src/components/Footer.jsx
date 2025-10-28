@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <h3 className="footer-logo">MIRAS</h3>
+            <img src="/assets/logos/miras_text_only.png" alt="MIRAS" className="footer-logo-img" />
             <p className="footer-tagline">Where tradition whispers luxury</p>
           </div>
           <div className="footer-links">

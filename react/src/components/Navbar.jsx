@@ -23,7 +23,7 @@ function Navbar() {
       <div className="navbar-container">
         <div className="navbar-brand">
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} onClick={closeMenu}>
-            <h1>MIRAS</h1>
+            <img src="/assets/logos/miras_text_only.png" alt="MIRAS" className="navbar-logo" />
           </Link>
         </div>
         <nav className="navbar-nav">

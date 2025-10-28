@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Hero() {
   const slides = useMemo(() => [
@@ -51,7 +52,7 @@ function Hero() {
       <div className={`hero-content ${loaded ? 'loaded' : ''}`}>
         <h1 className="hero-title">MIRAS</h1>
         <p className="hero-subtext">Where tradition whispers luxury</p>
-        <a href="/catalog" className="hero-btn" aria-label="Shop catalog">Shop Now</a>
+        <Link to="/catalog" className="hero-btn" aria-label="Shop catalog">Shop Now</Link>
       </div>
       <div className="hero-progress-multi">
         {slides.map((_, i) => (

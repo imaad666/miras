@@ -102,8 +102,16 @@ body {
     font-family: 'Roashe', serif;
     font-size: 1.8rem;
     font-weight: normal;
-    color: #E0D0A0;
+    color: #d4af37;
     letter-spacing: 2px;
+}
+
+.navbar-logo {
+    height: 1.5rem; /* Slightly bigger than original */
+    width: auto;
+    display: block;
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
 }
 
 .nav-links {
@@ -114,7 +122,7 @@ body {
 
 .nav-links a {
     font-family: 'Tilda Sans', sans-serif;
-    color: #E0D0A0;
+    color: #d4af37;
     text-decoration: none;
     font-weight: 400;
     font-size: 1rem;
@@ -134,7 +142,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: #E0D0A0;
+    background: #d4af37;
     transition: width 0.3s ease;
 }
 
@@ -152,7 +160,7 @@ body {
 .icon-btn {
     background: none;
     border: none;
-    color: #E0D0A0;
+    color: #d4af37;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
@@ -191,14 +199,14 @@ body {
 .mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background: #E0D0A0;
+    background: #d4af37;
     transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero {
     position: relative;
-    height: 92vh; /* slightly cropped so page scrolls */
+    height: calc(100vh - 60px); /* Full viewport height minus navbar height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,13 +371,13 @@ body {
         gap: 1rem;
     }
     
-.navbar-nav {
-    display: block;
-    position: static; /* allow UL to position against navbar-container */
-}
     .navbar-nav {
         display: block;
-        position: static;
+        position: static; /* allow UL to position against navbar-container */
+    }
+    
+    .hero {
+        height: calc(100vh - 62px); /* Adjust for tablet navbar height */
     }
     
     .nav-links {
@@ -443,8 +451,16 @@ body {
         font-size: 1.5rem;
     }
     
+    .navbar-logo {
+        height: 1.8rem; /* Slightly bigger for mobile */
+    }
+    
     .navbar-icons {
         gap: 0.6rem;
+    }
+    
+    .hero {
+        height: calc(100vh - 65px); /* Adjust for slightly taller mobile navbar */
     }
     
     .icon-btn {
@@ -1240,7 +1256,7 @@ html {
 /* Footer Section */
 .footer {
     background: #2f1c13;
-    color: #E0D0A0;
+    color: #d4af37;
     padding: 4rem 0 0;
     margin-top: 0;
 }
@@ -1262,11 +1278,21 @@ html {
     padding-right: 2rem;
 }
 
+/* Footer image logo sizing */
+.footer-logo-img {
+    height: 3.5rem; /* Slightly bigger than original */
+    width: auto;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+    max-width: 220px; /* Slightly wider for bigger logo */
+}
+
 .footer-logo {
     font-family: 'Roashe', serif;
     font-size: 2.5rem;
     font-weight: normal;
-    color: #E0D0A0;
+    color: #d4af37;
     letter-spacing: 3px;
     margin-bottom: 1rem;
 }
@@ -1275,7 +1301,7 @@ html {
     font-family: 'Partsold', serif;
     font-size: 1.2rem;
     font-style: italic;
-    color: #B8A082;
+    color: #d4af37;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -1290,7 +1316,7 @@ html {
     font-family: 'Tilda Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #E0D0A0;
+    color: #d4af37;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1308,7 +1334,7 @@ html {
 
 .footer-column a {
     font-family: 'Tilda Sans', sans-serif;
-    color: #B8A082;
+    color: #d4af37;
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -1316,7 +1342,7 @@ html {
 }
 
 .footer-column a:hover {
-    color: #E0D0A0;
+    color: #d4af37;
     transform: translateX(5px);
 }
 
@@ -1327,7 +1353,7 @@ html {
     left: 0;
     width: 0;
     height: 1px;
-    background: #E0D0A0;
+    background: #d4af37;
     transition: width 0.3s ease;
 }
 
@@ -1336,7 +1362,7 @@ html {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(224, 208, 160, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
     padding: 2rem 0;
 }
 
@@ -1350,7 +1376,7 @@ html {
 
 .footer-bottom p {
     font-family: 'Tilda Sans', sans-serif;
-    color: #B8A082;
+    color: #d4af37;
     font-size: 0.9rem;
     margin: 0;
 }
@@ -1362,14 +1388,14 @@ html {
 
 .footer-legal a {
     font-family: 'Tilda Sans', sans-serif;
-    color: #B8A082;
+    color: #d4af37;
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.3s ease;
 }
 
 .footer-legal a:hover {
-    color: #E0D0A0;
+    color: #d4af37;
 }
 
 /* Footer socials layout */
@@ -1377,6 +1403,18 @@ html {
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+
+.footer-socials a {
+    color: #d4af37;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.footer-socials a:hover {
+    color: #d4af37;
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
@@ -1441,6 +1479,11 @@ html {
     .footer-logo {
         font-size: 2rem;
         letter-spacing: 2px;
+    }
+    
+    .footer-logo-img {
+        height: 2.3rem; /* Slightly bigger for mobile */
+        max-width: 180px;
     }
     
     .footer-tagline {
