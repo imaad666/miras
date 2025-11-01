@@ -1,0 +1,212 @@
+.collections-page {
+  background: #fdfbf7;
+  color: #1c1c1c;
+}
+
+.breadcrumb {
+  background: #fdfbf7;
+  padding: 1.5rem 0;
+}
+
+.breadcrumb .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.breadcrumb-link {
+  color: #666;
+  text-decoration: none;
+  font-family: 'Tilda Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  color: #2C2C2C;
+}
+
+.breadcrumb-separator {
+  color: #999;
+  margin: 0 0.5rem;
+  font-family: 'Tilda Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-current {
+  color: #2C2C2C;
+  font-family: 'Tilda Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.collections-hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2.5rem) clamp(1.5rem, 6vw, 4rem) clamp(3rem, 8vw, 7rem);
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(130px, auto));
+  grid-template-areas:
+    "one two three"
+    "four copy five"
+    "six seven eight";
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  width: min(1080px, 100%);
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.collection-photo {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.collection-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0 28px 45px rgba(34, 32, 30, 0.14);
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+.collection-photo figcaption {
+  font-family: 'Tilda Sans', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #555;
+}
+
+.photo-one { grid-area: one; }
+.photo-two { grid-area: two; }
+.photo-three { grid-area: three; }
+.photo-four { grid-area: four; }
+.photo-five { grid-area: five; }
+.photo-six { grid-area: six; }
+.photo-seven { grid-area: seven; }
+.photo-eight { grid-area: eight; }
+
+.collections-copy {
+  grid-area: copy;
+  text-align: center;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 0.9rem);
+}
+
+.collections-lede {
+  font-family: 'Roashe', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  line-height: 1.2;
+  max-width: 22ch;
+}
+
+.collections-sublede {
+  font-family: 'Tilda Sans', sans-serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.5;
+  color: #3f3d3c;
+  max-width: 28ch;
+}
+
+.collections-cta {
+  margin-top: 0.5rem;
+  font-family: 'Tilda Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.88rem;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 0.35rem;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.collections-cta:hover,
+.collections-cta:focus-visible {
+  color: #744632;
+  border-color: #744632;
+}
+
+@media (max-width: 960px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(130px, auto));
+    grid-template-areas:
+      "one two"
+      "three four"
+      "copy copy"
+      "five six"
+      "seven eight";
+    justify-items: center;
+  }
+
+  .collection-photo {
+    max-width: min(340px, 100%);
+  }
+
+}
+
+@media (max-width: 640px) {
+  .breadcrumb {
+    padding: 1rem 0;
+  }
+
+  .breadcrumb .container {
+    padding: 0 1rem;
+  }
+
+  .collections-hero {
+    padding: clamp(1rem, 8vw, 2rem) clamp(1rem, 6vw, 1.5rem) clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .collections-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas:
+      "one"
+      "two"
+      "three"
+      "copy"
+      "four"
+      "five"
+      "six"
+      "seven"
+      "eight";
+    gap: clamp(1rem, 6vw, 1.8rem);
+  }
+
+  .collection-photo {
+    max-width: min(320px, 100%);
+    justify-self: center;
+  }
+
+  .collections-copy {
+    max-width: min(320px, 100%);
+    justify-self: center;
+  }
+
+  .collections-lede {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+  
+  .collections-sublede {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+}

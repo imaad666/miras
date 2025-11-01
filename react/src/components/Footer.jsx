@@ -13,7 +13,7 @@ function Footer() {
             <div className="footer-column">
               <h4>Shop</h4>
               <ul>
-                <li><a href="#collections">Collections</a></li>
+                <li><Link to="/collections">Collections</Link></li>
                 <li><a href="#new-arrivals">New Arrivals</a></li>
                 <li><a href="#bestsellers">Bestsellers</a></li>
               </ul>

@@ -32,7 +32,7 @@ function Navbar() {
               <Link to="/catalog" onClick={closeMenu} aria-current={location.pathname === '/catalog' ? 'page' : undefined}>Shop</Link>
             </li>
             <li>
-              <a href="#collections" onClick={closeMenu}>Collections</a>
+              <Link to="/collections" onClick={closeMenu} aria-current={location.pathname === '/collections' ? 'page' : undefined}>Collections</Link>
             </li>
             <li>
               <a href="#about" onClick={closeMenu}>About</a>
@@ -67,5 +67,4 @@ function Navbar() {
 }
 
 export default Navbar
-
 
