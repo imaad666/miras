@@ -104,7 +104,7 @@ body {
     font-family: 'Roashe', serif;
     font-size: 1.8rem;
     font-weight: normal;
-    color: #d4af37;
+    color: #e0d0a0;
     letter-spacing: 2px;
 }
 
@@ -125,7 +125,7 @@ body {
 
 .nav-links a {
     font-family: 'Tilda Sans', sans-serif;
-    color: #d4af37;
+    color: #e0d0a0;
     text-decoration: none;
     font-weight: 400;
     font-size: 1rem;
@@ -145,7 +145,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: #d4af37;
+    background: #e0d0a0;
     transition: width 0.3s ease;
 }
 
@@ -163,7 +163,7 @@ body {
 .icon-btn {
     background: none;
     border: none;
-    color: #d4af37;
+    color: #e0d0a0;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 50%;
@@ -202,7 +202,7 @@ body {
 .mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background: #d4af37;
+    background: #e0d0a0;
     transition: all 0.3s ease;
 }
 
@@ -1289,7 +1289,7 @@ html {
 /* Footer Section */
 .footer {
     background: #2f1c13;
-    color: #d4af37;
+    color: #e0d0a0;
     padding: 4rem 0 0;
     margin-top: 0;
 }
@@ -1324,7 +1324,7 @@ html {
     font-family: 'Roashe', serif;
     font-size: 2.5rem;
     font-weight: normal;
-    color: #d4af37;
+    color: #e0d0a0;
     letter-spacing: 3px;
     margin-bottom: 1rem;
 }
@@ -1333,9 +1333,10 @@ html {
     font-family: 'Partsold', serif;
     font-size: 1.2rem;
     font-style: italic;
-    color: #d4af37;
+    color: #e0d0a0;
     margin-bottom: 2rem;
     line-height: 1.6;
+    text-align: center;
 }
 
 .footer-links {
@@ -1348,7 +1349,7 @@ html {
     font-family: 'Tilda Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #d4af37;
+    color: #e0d0a0;
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1366,7 +1367,7 @@ html {
 
 .footer-column a {
     font-family: 'Tilda Sans', sans-serif;
-    color: #d4af37;
+    color: #e0d0a0;
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.3s ease;
@@ -1374,7 +1375,7 @@ html {
 }
 
 .footer-column a:hover {
-    color: #d4af37;
+    color: #fff;
     transform: translateX(5px);
 }
 
@@ -1385,7 +1386,7 @@ html {
     left: 0;
     width: 0;
     height: 1px;
-    background: #d4af37;
+    background: #e0d0a0;
     transition: width 0.3s ease;
 }
 
@@ -1420,14 +1421,14 @@ html {
 
 .footer-legal a {
     font-family: 'Tilda Sans', sans-serif;
-    color: #d4af37;
+    color: #e0d0a0;
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.3s ease;
 }
 
 .footer-legal a:hover {
-    color: #d4af37;
+    color: #fff;
 }
 
 /* Footer socials layout */
@@ -1438,13 +1439,13 @@ html {
 }
 
 .footer-socials a {
-    color: #d4af37;
+    color: #e0d0a0;
     transition: all 0.3s ease;
     opacity: 0.9;
 }
 
 .footer-socials a:hover {
-    color: #d4af37;
+    color: #fff;
     opacity: 1;
     transform: translateY(-2px);
 }
