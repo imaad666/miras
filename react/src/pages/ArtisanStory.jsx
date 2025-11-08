@@ -93,6 +93,18 @@ function ArtisanStory() {
           </div>
         </div>
       </section>
+
+      <section className="story-gallery">
+        <div className="story-container">
+          <h2 className="workers-heading">Meet the Creator</h2>
+          <div className="workers-grid">
+            <div className="worker-card">
+              <img className="worker-avatar" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Creator silhouette" />
+              <div className="worker-name">Creator</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
