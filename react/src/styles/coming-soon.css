@@ -1,0 +1,42 @@
+.coming-soon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.coming-soon-logo {
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
+  height: auto;
+}
+
+.coming-soon-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  .coming-soon-container {
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+  }
+  
+  .coming-soon-logo {
+    filter: brightness(0) invert(1); /* Make logo white in dark mode if it's black */
+  }
+
+  .coming-soon-text {
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
